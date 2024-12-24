@@ -1,4 +1,4 @@
-package com.kosa.catalogservice.catalog_service;
+package com.kosa.catalogservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

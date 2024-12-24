@@ -33,6 +33,9 @@ dependencies {
 
 	//유효성 검증을 위한 라이브러리 
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	//테스트 루틴을 처리하기 위한 라이브러리
+	testImplementation 'org.assertj:assertj-core'
 }
 
 tasks.named('test') {
