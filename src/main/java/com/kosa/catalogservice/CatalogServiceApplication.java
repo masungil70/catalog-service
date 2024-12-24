@@ -1,4 +1,4 @@
-package com.kosa.catalogservice.catalog_service;
+package com.kosa.catalogservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
