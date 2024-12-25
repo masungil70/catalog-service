@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: catalog-service
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+server:
+  port: 9091
+  tomcat:
+    connection-timeout: 2s
+    keep-alive-timeout: 15s
+    threads:
+      max: 50
+      min-spare: 5
+#spring.profiles.active 속성을 설정하는 방법도 있으나 이런 방법 보다는 build.gradle 파일에 설정하는 방법이 좋은
+#아래와 같이 설정하면 나중에 배포할 때는 제거해야 하는데 삭제하는 것을 실수 할 수 있음
+#spring.profiles.active=testdata
+#아래 구문을 build.gradle의 맨 아래부부에 추가하는 것이 좋음
+#bootRun {
+#	systemProperty 'spring.profiles.active', 'testdata'
+#}
+
