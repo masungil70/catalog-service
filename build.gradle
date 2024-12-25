@@ -49,3 +49,8 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+//spring.profiles.active 속성을 설정 하는 방법으로 ./gradlew bootRun 명령어 실행시 속성 변수 추가하여 실행됨 
+bootRun {
+	systemProperty 'spring.profiles.active', 'testdata'
+}
