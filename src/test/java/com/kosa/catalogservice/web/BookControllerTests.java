@@ -12,12 +12,9 @@ import com.kosa.catalogservice.domain.BookController;
 import com.kosa.catalogservice.domain.BookNotFountException;
 import com.kosa.catalogservice.domain.BookService;
 
-import lombok.extern.slf4j.Slf4j;
-
 import static org.mockito.BDDMockito.given;
 
 @WebMvcTest(BookController.class)
-@Slf4j
 public class BookControllerTests {
 
     @Autowired
@@ -29,8 +26,6 @@ public class BookControllerTests {
     @Test
     void whenGetBookNotExistingThenShouldReturn404() throws Exception {
         String isbn = "12121212";
-        log.info("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        log.info("isbn = " + isbn);
         // viewBookDetail() 호출시 BookNotFountException 예외가 발생 할 것으로 규정한다
         given(bookService.viewBookDetail(isbn)).willThrow(BookNotFountException.class);
 

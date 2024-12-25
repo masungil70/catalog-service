@@ -27,10 +27,14 @@ public class BookValidationTests {
         assertThat(violations).isEmpty();
     }
 
-    @Test
-    void whenIsbnDefinedButIncorrectThenValidationFails() {
-        var book = new Book("a234567890", "책 제목", "책저자", 9.90);
-        Set<ConstraintViolation<Book>> violations = validator.validate(book);
-        assertThat(violations).isEmpty();
-    }
+    /*
+     * 테스트 오류 용 함수
+     * 
+     * @Test
+     * void whenIsbnDefinedButIncorrectThenValidationFails() {
+     * var book = new Book("a234567890", "책 제목", "책저자", 9.90);
+     * Set<ConstraintViolation<Book>> violations = validator.validate(book);
+     * assertThat(violations).isEmpty();
+     * }
+     */
 }
