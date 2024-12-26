@@ -47,8 +47,19 @@ dependencies {
 	//설정 (config) 관련 의존성  라이브러리 추가 
 	implementation "org.springframework.boot:spring-boot-configuration-processor"
 
-	//스프링 클라우드 컨피그 클라이언트에 대한 라이브러리 설정
+	//스프링 클라우드 config 클라이언트에 대한 라이브러리 설정
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	
+	//스프링 클라우드 config 서버에 대한 재시도 의존성 라이브러리 설정
+	implementation 'org.springframework.retry:spring-retry'
+
+	// 카탈로그 서비스에서 스프링 부트 액추에이터 의존성 라이브러리 설정
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	//스프링 부트 JDBC 의존성 설정
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	//마리아 DB  의존성 설정
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
 }
 
