@@ -19,7 +19,7 @@ public class BookDataLoader {
 
     @EventListener(ApplicationReadyEvent.class)
     public void loadBookTestData() {
-        bookRepository.save(Book.of("1234567891", "책 제목1", "책 저자1", 9.90));
-        bookRepository.save(Book.of("1234567892", "책 제목2", "책 저자2", 19.90));
+        bookRepository.save(Book.of("1234567891", "책 제목1", "책 저자1", 9.90, "출판사"));
+        bookRepository.save(Book.of("1234567892", "책 제목2", "책 저자2", 19.90, "출판사"));
     }
 }
