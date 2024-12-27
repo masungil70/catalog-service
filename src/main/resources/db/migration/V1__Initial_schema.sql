@@ -1,4 +1,3 @@
-drop table if exists book;
 create table book (
     id     int primary key not null AUTO_INCREMENT, 
     isbn   varchar(255) not null,
