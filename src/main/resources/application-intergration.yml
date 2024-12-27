@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    username: root
+    password: 70sungil
+    url: jdbc:mariadb://192.168.1.3:53306/polardb_catalog

@@ -25,6 +25,7 @@ repositories {
 
 ext {
 	set('springCloudVersion', "2024.0.0")
+	set('testcontainersVersion', "1.19.1")
 }
 
 dependencies {
@@ -61,11 +62,16 @@ dependencies {
 	//마리아 DB  의존성 설정
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
+	//Testcontainers의 JUnit 5 기반 테스트를 기본으로 지원하기 때문에 필요한 의존성 라이브러리 설정
+	testImplementation 'org.testcontainers:junit-jupiter:1.19.1' // Testcontainers JUnit 통합
+    testImplementation 'org.testcontainers:mariadb:1.19.1' // MySQL 예시
+
 }
 
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
 	}
 }
 
