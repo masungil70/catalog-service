@@ -87,3 +87,23 @@ tasks.named('test') {
 bootRun {
 	systemProperty 'spring.profiles.active', 'testdata'
 }
+
+bootBuildImage {
+	imageName = "${project.name}"
+	environment = ["BP_JVM_VERSION" : "17.*"]
+}
+/*
+위 구문 추가후 빌드 하고 실행 방법 
+1. 빌드 이미지 생성 명령 
+./gradlew bootBuildImage 
+
+2. docker 이미지로 실행하는 방법 (환설 설정 정보를 얻는 서버의 실제 주소를 스프링 환경설정 변수를 사용하여 전달)
+docker run -d \
+--name catalog-service \
+-p 9091:9091 \
+-e SPRING_PROFILES_ACTIVE=testdata \
+catalog-service \
+--spring.cloud.config.uri=http://172.27.99.163:8888
+
+
+*/
