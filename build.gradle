@@ -84,13 +84,39 @@ tasks.named('test') {
 }
 
 //spring.profiles.active 속성을 설정 하는 방법으로 ./gradlew bootRun 명령어 실행시 속성 변수 추가하여 실행됨 
-bootRun {
-	systemProperty 'spring.profiles.active', 'testdata'
-}
+//bootRun {
+//	systemProperty 'spring.profiles.active', 'testdata'
+//}
 
 bootBuildImage {
 	imageName = "${project.name}"
 	environment = ["BP_JVM_VERSION" : "17.*"]
+
+	//컨테이너 저장소 인증을 설정하기 위한 섹션값은 그래들 속성을 통해서 전달
+	docker {
+		publishRegistry {
+			username = project.findProperty("registryUsername")
+			password = project.findProperty("registryToken")
+			url = project.findProperty("registryUrl")
+		}
+	}
+	/*
+	위 구문 빌드 방법 (github docker 이미지 저장소에 push)
+	./gradlew bootBuildImage \
+	  --imageName ghcr.io/아이디/catalog-service \
+	  --publishImage \
+	  -PregistryUsername=아이디 \
+	  -PregistryToken=token \
+	  -PregistryUrl=ghcr.io
+
+	(docker 이미지 저장소에 push)
+	./gradlew bootBuildImage \
+	  --imageName docker.io/아이디/catalog-service \
+	  --publishImage \
+	  -PregistryUsername=아이디 \
+	  -PregistryToken=비밀번호 \
+	  -PregistryUrl=docker.io    
+	 */	  
 }
 /*
 위 구문 추가후 빌드 하고 실행 방법 

@@ -1,8 +1,13 @@
 package com.kosa.catalogservice.domain;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class BookService {
     private final BookRepository bookRepository;
 
@@ -15,7 +20,9 @@ public class BookService {
     }
 
     public Book viewBookDetail(String isbn) {
-        return bookRepository.findByIsbn(isbn).orElseThrow(() -> new BookNotFountException(isbn));
+        Optional<Book> book = bookRepository.findByIsbn(isbn);
+        log.info("bookRepository.findByIsbn({}) = {}", isbn, book);
+        return book.orElseThrow(() -> new BookNotFountException(isbn));
     }
 
     public Book addBookToCatalog(Book book) {
