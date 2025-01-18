@@ -15,18 +15,21 @@ import com.kosa.catalogservice.domain.Book;
 import com.kosa.catalogservice.domain.BookService;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/books")
+@RequiredArgsConstructor
 public class BookController {
     private final BookService bookService;
 
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
-
     @GetMapping
     public Iterable<Book> get() {
+        try {
+            Thread.sleep(995);
+        } catch (Exception e) {
+
+        }
         return bookService.viewBookList();
     }
 

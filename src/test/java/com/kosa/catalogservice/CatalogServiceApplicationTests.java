@@ -21,6 +21,12 @@ class CatalogServiceApplicationTests {
 		var expectedBook = Book.of("1234567891", "책 제목", "책 저자", 9.90, "출판사");
 
 		webTestClient
+				.delete()
+				.uri("/books/" + expectedBook.isbn())
+				.exchange() // url을 요청한다
+		;
+
+		webTestClient
 				.post()
 				.uri("/books")
 				.bodyValue(expectedBook)
